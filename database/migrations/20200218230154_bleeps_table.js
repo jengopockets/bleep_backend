@@ -11,7 +11,7 @@ exports.up = function(knex) {
             .inTable('users')
             .onUpdate('CASCADE')
             .onDelete('RESTRICT');
-        tbl.timestamp('created at')
+        tbl.timestamp('created_at')
             .defaultTo(knex.fn.now())
     })
 };
