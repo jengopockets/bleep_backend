@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('followers', tbl => {
-        tbl.increment();
+        tbl.increments();
         tbl.integer('follower_id')
             .notNullable()
             .unsigned()
