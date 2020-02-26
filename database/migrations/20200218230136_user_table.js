@@ -13,7 +13,7 @@ exports.up = function(knex) {
         .string('email', 255)
         .unique()
       users
-        .string('bio', 255)
+        .string('bio', 1000)
   })
 };
 
