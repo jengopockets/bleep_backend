@@ -13,4 +13,25 @@ router.get('/', (req,res) => {
         })
 })
 
+router.post('/login', (req, res) => {
+    if(!req.body.password || !req.body.username){
+        res.status(401).json({message: 'Needs Username & Password'})
+    }else {
+        let {username, password } = req.body;
+        User.getUser({ username })
+            .first()
+            .then(user => {
+                if (user && bcrypt.compareSync(password, user.password)) {
+                    res.status(200).json({message: `Welcome ${user.username}!`, token})
+                }else{
+                    res.status(401).json({ message: 'You Shall Not Pass!'})
+                }
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            });
+    }
+});
+
+
 module.exports = router
