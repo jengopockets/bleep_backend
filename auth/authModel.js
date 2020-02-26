@@ -1,7 +1,7 @@
 const db = require('../database/dbconfig');
 
 module.exports = {
-    getUserNames
+    getUserNames,
     getUser
 }
 
