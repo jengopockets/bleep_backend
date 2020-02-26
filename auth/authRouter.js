@@ -23,7 +23,7 @@ router.post('/login', (req, res) => {
             .then(user => {
                 console.log('This here', user);
                 if (user && bcrypt.compareSync(password, user.password)) {
-                    res.status(200).json({message: `Welcome ${user.username}!`, token})
+                    res.status(200).json({message: `Welcome ${user.username}!`})
                 }else{
                     res.status(401).json({ message: 'You Shall Not Pass!'})
                 }
