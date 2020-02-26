@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
         User.getUser({ username })
             .first()
             .then(user => {
-                console.log(user);
+                console.log('This here', user);
                 if (user && bcrypt.compareSync(password, user.password)) {
                     res.status(200).json({message: `Welcome ${user.username}!`, token})
                 }else{
